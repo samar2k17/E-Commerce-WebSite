@@ -1,0 +1,176 @@
+
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Eye Market</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body ng-app="ngCribs" ng-controller="cribsController" style="background-color: greenyellowurl">
+
+  	<!-- Nav Bar -->
+	
+    <nav class="navbar navbar-default navbar-fixed-top toper"   >
+         <div class="container-fluid">
+	      <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+	        <a class="navbar-brand" hregggf="#order">Eye Market</a>
+              
+	      </div>
+          <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+                    <li><a href="">About</a></li>
+                    <li><a href="#contacteye">Contact Us</a></li>
+                    
+                    <li>
+                        <a href="http://localhost:8888/forms.php" role="button" class="btn btn-success btn-xs" style="color: aliceblue">Post Your Shop</a>
+                        
+                        
+                        
+                    </li>
+                </ul>
+
+             </div>    
+	    </div>
+	  </nav>
+      <div class="cover ">
+        <div class="text">
+            <h1>Welcome To Eye Market</h1>
+            
+            <a href="#order" role="button" class="btn btn-primary btn-lg " id="ordernow">Order Now</a>
+        </div>
+    </div>
+    <div class="section" id="order">
+       <div class="container" id="find">  
+            <h1> Find Your Store Using Filter</h1>
+        <div class="col-sm-12 address filtee">
+           
+            <div class="col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon">Location</span>
+                    <select name="location" id="locatio" ng-model="loco.address" class="form-control">
+                        
+                        <option value="Thokar No 8">Thokar No 8</option>
+                        <option value="Thokar No 7">Thokar No 7</option>
+                        <option value="Thokar No 6">Thokar No 6</option>
+                        <option value="Thokar No 4">Thokar No 4</option>
+                        <option value="Thokar No 3">Thokar No 3</option>
+                        <option value="Batla House">Batla House</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon">Type</span>
+                    <select name="type" id="type" ng-model="loco.type" class="form-control">
+                        
+                        <option value="food">Food</option>
+                        <option value="Meat">Raw Meat/Chicken</option>
+                        <option value="Grocery">Grocery</option>
+                        <option value="General ">General Store</option>
+                        <option value="Recharge">Recharge</option>
+                        <option value="bookstore">BookStore</option>
+                        <option value="chemist">Chemist</option>
+                    </select>
+                </div>
+            </div>
+      </div>
+      </div>    
+      
+    
+       
+         
+               
+        <div class="container">
+            <div class="col-sm-4" ng-repeat="crib in cribs | filter:loco">
+                <div class="thumbnail">
+                    <img ng-src="{{crib.image}}.jpg" alt="halal" width="460" height="345">
+                    <div class="caption"> 
+                        <div ng-hide="showDetails===true">
+                           <h3><i class="glyphicon glyphicon-user"></i>{{crib.name}} </h3>
+                            <h4><i class="glyphicon glyphicon-earphone"></i> {{crib.call}}
+                                <span class="label label-primary lable-sm">{{crib.type}}</span>
+                                
+                            </h4>
+                        </div>
+                        
+                        <button class="btn btn-xs btn-success"
+                                ng-hide="showDetails=== true"
+                                ng-click="showDetails=!showDetails">
+                            Details</button>
+                        <button class="btn btn-xs btn-danger" 
+                            ng-show="showDetails === true"
+                            ng-click="showDetails = !showDetails">
+                            Close
+                        </button>
+                        <div class="details" ng-show="showDetails === true">
+                              <h4>
+                                <span class="label label-primary"> {{crib.open}}</span>
+                             </h4>
+                              <p>{{crib.description}}</p>  <br>            
+                       </div> 
+                      
+                       
+                       
+
+                    
+                    </div> 
+                </div>
+            </div>
+        </div>
+      </div> 
+      <div class="sectiontwo" id="contacteye">
+       <div id="item">
+        <div  class="container contacttext"><br><br>
+            <h2>Contact Eye Market</h2><br><br><br><br><br><br><br>
+            <div class="row">
+                <div class="col-sm-6">
+                     <span class="glyphicon glyphicon-envelope details-favoriteicon" aria-hidden="true" style="text-align: center;"><br><span class="hovering"style="color:ghostwhite">samarrashid10@gmail.com</span></span>
+                     
+                    
+                </div>
+                <div class="col-sm-6">
+                     <span class="glyphicon glyphicon-phone details-favoriteicon" aria-hidden="true" style="text-align: center"><br>
+                    <span class="hovering" style="color: ghostwhite">91-9205502894</span></span>
+                     
+                    
+                </div>
+                
+            </div>
+        </div>
+    
+    </div><br><br><br>   
+    </div>  
+         
+    <footer>
+        created with &hearts;  by Samar
+    </footer>
+    
+        
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
+  <script src="app.js"></script>
+  <script src="scripts/cribsController.js"></script>
+  <script src="scripts/cribsFactory.js"></script>
+   <script src="scripts/cribsfilter.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-localScroll/2.0.0/jquery.localScroll.min.js">
+    </script>
+    
+  <script src="scripts/smooth.js"></script>
+ 
+
+    
+</html>
